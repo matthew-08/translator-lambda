@@ -61,10 +61,12 @@ export class SentenceTranslator {
       this._currentOpenConnections < this._maxConnections
     ) {
       this._currentOpenConnections++;
+      // asserting here is fine since we check the queue length
+      const { result, sequenceNumber } =
+        this._processQueue.shift() as PreparedTranslationInput;
+
+      let encounteredError = false;
       try {
-        // asserting here is fine since we check the queue length
-        const { result, sequenceNumber } =
-          this._processQueue.shift() as PreparedTranslationInput;
         const iterable = await this._translationClient.translate(
           JSON.stringify(result)
         );
@@ -75,14 +77,38 @@ export class SentenceTranslator {
             dataChunk: chunk,
           });
         }
-      } catch (error) {
+        console.log('test');
+        this._resultProcessor.handleIncomingChunk({
+          sequenceNumber,
+          dataChunk: `COMPLETE SEQUENCE NUMBER ${sequenceNumber}\n`,
+        });
+        this._resultProcessor.handleIncomingChunk({
+          sequenceNumber,
+          dataChunk: null,
+        });
+      } catch (error: any) {
         this._logger.error(
           `Error from sentence translator: ${JSON.stringify(error)}`
         );
+        encounteredError = true;
+        if (error.code === 'rate_limit_exceeded') {
+          this._processQueue.push({
+            result,
+            sequenceNumber,
+          });
+          this._logger.info(
+            `Rate limit exceeded, retrying seq number ${sequenceNumber} in 20 seconds`
+          );
+          await new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve(undefined);
+            }, 20000);
+          });
+        }
       }
-      // TODO: Add retry / error handling
-      // for now, just letting the translations continue after an error
-      this._eventEmitter.emit(EVENTS.CHUNK_TRANSLATED);
+      if (!encounteredError) {
+        this._eventEmitter.emit(EVENTS.CHUNK_TRANSLATED, sequenceNumber);
+      }
       this._currentOpenConnections--;
       this.handleTranslation();
     }
@@ -90,9 +116,13 @@ export class SentenceTranslator {
   }
 
   private checkFinished() {
-    if (this._receivedAllChunksReadEvent && !this._processQueue.length) {
+    const finished =
+      this._receivedAllChunksReadEvent &&
+      !this._processQueue.length &&
+      this._currentOpenConnections === 0;
+    if (finished) {
       this._logger.info(
-        'All chunks processed, emitting all chunks translated event'
+        'All chunks processed, no current connections with AI client emitting all chunks translated event'
       );
       this._eventEmitter.emit(EVENTS.ALL_CHUNKS_TRANSLATED);
     }

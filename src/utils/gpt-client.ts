@@ -13,7 +13,9 @@ const defaultMessageSetup: ChatCompletionCreateParamsBase['messages'] = [
             You will be given an array of arrays - each subarray representing a set of words to be translated.
             Translate each array and give back a response in the same order presented with each word
             in the subarray presented as a tuple of ["vietnamese word", "translation"].  Punctuation,
-            numbers, and untranslatable words are to be marked with the boolean value 'false' [".", false]`,
+            numbers, and untranslatable words are to be marked with the boolean value 'false' [".", false]
+            Each sentence should be separated by a newline control character, as each sentence will be output into a jsonl file.
+            `,
   },
   {
     role: 'user',
@@ -26,26 +28,7 @@ const defaultMessageSetup: ChatCompletionCreateParamsBase['messages'] = [
   },
   {
     role: 'assistant',
-    content: `[
-        [
-          ["bạn", "friend"],
-          ["sẽ", "will"],
-          ["dễ dàng", "easily"],
-          ["đạt", "achieve"],
-          ["tác động", "effect"],
-          ["lớn", "large"],
-          [".", false]
-        ],
-        [
-          ["Ước tính", "estimate"],
-          ["cái", "the"],
-          ["số lượng", "amount"]
-        ],
-        [
-          ["nhung mà", "but"],
-          [",", false]
-        ]
-      ]`,
+    content: `[["bạn", "friend"],["sẽ", "will"]["dễ dàng", "easily"],["đạt", "achieve"],["tác động", "effect"],["lớn", "large"],[".", false]]\n[["Ước tính", "estimate"]["cái", "the"]["số lượng", "amount"]]\n[["nhung mà", "but"][",", false]]`,
   },
 ];
 

@@ -1,7 +1,9 @@
-import { EventEmitter } from 'stream';
+import { EventEmitter, PassThrough } from 'stream';
 import { EVENTS } from '../utils/constants/event-map';
 import fs from 'fs';
 import { Logger } from '../log/log';
+import { ChunkBuffer } from './streams/chunk-buffer';
+import { appLogger } from '../log/log';
 
 type Chunk = {
   sequenceNumber: number;
@@ -13,6 +15,7 @@ const w = fs.createWriteStream('./test-res.jsonl');
 export class StreamableRepository {
   async write({ dataChunk, sequenceNumber }: Chunk) {
     if (dataChunk) {
+      appLogger.info(dataChunk + '  ' + sequenceNumber);
       w.write(dataChunk);
     }
   }
@@ -25,6 +28,7 @@ export class FinalResultHandler {
   private _eventEmitter: EventEmitter;
   private _currentlyUploading: boolean;
   private _logger: Logger;
+  private _finishedChunks: Record<number, boolean>;
   constructor(
     eventEmitter: EventEmitter,
     repository: StreamableRepository,
@@ -37,6 +41,7 @@ export class FinalResultHandler {
     this._currentSequenceNumber = 0;
     this._chunkMap = {};
     this._currentlyUploading = false;
+    this._finishedChunks = {};
 
     this._eventEmitter.on(
       EVENTS.CHUNK_TRANSLATED,
@@ -56,7 +61,7 @@ export class FinalResultHandler {
   }
 
   handleEnd() {
-    console.log('end');
+    appLogger.info('end');
   }
 
   handleIncrementSequenceNumber() {
@@ -70,17 +75,24 @@ export class FinalResultHandler {
       ? existingMap.push(chunk)
       : (this._chunkMap[chunk.sequenceNumber] = []);
 
-    if (!this._currentlyUploading) {
-      this._currentlyUploading = true;
+    if (
+      !this._currentlyUploading &&
+      chunk.sequenceNumber === this._currentSequenceNumber
+    ) {
       this.uploadChunk();
     }
+    this.checkFinished();
   }
 
   private async uploadChunk() {
+    this._currentlyUploading = true;
     const currentChunksToUpload = this._chunkMap[this._currentSequenceNumber];
     while (currentChunksToUpload && currentChunksToUpload.length) {
       try {
-        await this._repository.write(currentChunksToUpload.shift() as Chunk);
+        const chunk = currentChunksToUpload.shift() as Chunk;
+        if (chunk.dataChunk === null) {
+          this.handleChunkComplete();
+        } else await this._repository.write(chunk);
       } catch (error) {
         console.error(error);
       }
@@ -88,15 +100,34 @@ export class FinalResultHandler {
     this._currentlyUploading = false;
   }
 
-  private handleFinishedTranslation() {
-    if (this._chunkMap[this._currentSequenceNumber]) {
-      this._logger.info(
-        `Finishing processing chunks for seq number: ${this._currentSequenceNumber}`
-      );
-      delete this._chunkMap[this._currentSequenceNumber];
+  private checkFinished() {
+    if (this._finishedChunks[this._currentSequenceNumber]) {
+      if (this._chunkMap[this._currentSequenceNumber].length) {
+        appLogger.info('chunk still has bytes, retrying');
+        this.uploadChunk();
+      } else {
+        appLogger.info('chunk complete');
+        this.handleChunkComplete();
+      }
     }
-    ++this._currentSequenceNumber;
+  }
+
+  private handleChunkComplete() {
+    delete this._chunkMap[this._currentSequenceNumber];
+
+    this._currentSequenceNumber++;
+    this._logger.info(
+      `Finishing processing chunks for seq number: ${
+        this._currentSequenceNumber - 1
+      }
+      `
+    );
     this._eventEmitter.emit(EVENTS.CHUNK_UPLOADED);
     this.uploadChunk();
+  }
+
+  private handleFinishedTranslation(seqNumber: number) {
+    appLogger.info('received seq number', seqNumber);
+    this._finishedChunks[seqNumber] = true;
   }
 }

@@ -27,9 +27,6 @@ export const createServiceLogger = (serviceName?: string) => {
       ],
     });
   } else {
-    winston.addColors({
-      info: 'bold white',
-    });
     return winston.createLogger({
       level: 'debug',
       defaultMeta: {
@@ -37,13 +34,10 @@ export const createServiceLogger = (serviceName?: string) => {
       },
       transports: [
         new winston.transports.Console({
-          format: winston.format.combine(
-            winston.format.splat(),
-            devFormat,
-            winston.format.colorize({
-              all: true,
-            })
-          ),
+          format: winston.format.combine(winston.format.splat(), devFormat),
+        }),
+        new winston.transports.File({
+          filename: './test.txt',
         }),
       ],
     });

@@ -1,270 +1,29 @@
-[
-        [
-          ["có", "has"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "one"],
-          ["người", "person"]
-        ],
-        [
-          [".", false]
-        ],
-        [
-          ["có", "has"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "one"],
-          ["người", "person"]
-        ],
-        [
-          [".", false]
-        ],
-        [
-          ["có", "has"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "one"],
-          ["người", "person"]
-        ],
-        [
-          [".", false]
-        ],
-        [
-          ["có", "has"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như",[
-        [
-            ["có", "has"],
-            ["tác động", "impact"],
-            ["lớn", "big"],
-            ["–", false],
-            ["như", "like"],
-            ["mời", "invite"],
-            ["một", "one"],
-            ["người", "person"],
-            [",", false]
-        ],
-        [
-            ["có", "has"],
-            ["tác động", "impact"],
-            ["lớn", "big"],
-            ["–", false],
-            ["như", "like"],
-            ["mời", "invite"],
-            ["một", "one"],
-            ["người", "person"],
-            [",", false]
-        ],
-        [
-            ["có", "has"],
-            ["tác động", "impact"],
-            ["lớn", "big"],
-            ["–", false],
-            ["như", "like"],
-            ["mời", "invite"],
-            ["một", "one"],
-            ["người", "person"],
-            [",", false]
-        ],
-        [
-            ["có", "has"],
-            ["tác động", "impact"],
-            ["lớn", "big"],
-            ["–", false],
-            ["như", "like"],
-            ["mời", "invite"],
-            ["một", "one"],
-            ["người", "person"],
-            [",", false]
-        ],
-        [
-            ["có", "has"],
-            ["tác động", "impact"],
-            ["lớn", "big"],
-            ["–", false],
-            ["như", "like"],
-            ["mời", "invite"],
-            ["một", "one"],
-            ["người", "person"],
-            [",", false]
-        ],
-        [
-            ["có", "has"],
-            ["tác động", "impact"],
-            ["lớn", "big"],
-            ["–", false],
-            ["như", "like"],
-            ["mời", "invite"],
-            ["một", "one"],
-            ["người", "person"],
-            [",", false]
-        ],
-        [
-            ["có", "has"],
-            ["tác động", "impact"],
-            ["lớn", "big"],
-            ["–", false],
-            ["như", "like"],
-            ["mời", "invite"],
-            ["một", "one"],
-            ["người", "person"]
-        ]
-    ][
-        [
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "a"],
-          ["người", "person"],
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "a"],
-          ["người", "person"],
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "a"],
-          ["người", "person"],
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "a"],
-          ["người", "person"],
-          [".", false]
-        ],
-        [
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "big"]
-        ],
-        [
-          [".", false]
-        ]
-      ][
-        [
-          ["có", "have"],
-          ["tác ��ộng", false],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "one"],
-          ["người", "person"],
-          ["có", "have"],
-          ["tác động", false],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "one"],
-          ["người", "person"],
-          ["có", "have"],
-          ["tác động", false],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "one"],
-          ["người", "person"],
-          ["có", "have"],
-          ["tác động", false],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "one"],
-          ["người", "person"],
-          [".", false]
-        ]
-      ][
-        [
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "major"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "one"],
-          ["người", "person"]
-        ],
-        [
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "major"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "one"],
-          ["người", "person"]
-        ],
-        [
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "major"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "one"],
-          ["người", "person"]
-        ],
-        [
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "[
-        [
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "a"],
-          ["người", "person"]
-        ],
-        [
-          [".", false],
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "a"],
-          ["người", "person"]
-        ],
-        [
-          [".", false],
-          ["có", "have"],
-          ["tác động", "impact"],
-          ["lớn", "big"],
-          ["–", false],
-          ["như", "like"],
-          ["mời", "invite"],
-          ["một", "a"],
-          ["người", "person"]
-        ]
-      ]
+[["có","has"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]COMPLETE SEQUENCE NUMBER 0
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]COMPLETE SEQUENCE NUMBER 1
+[["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],[".", false]]
+[["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],[".", false]]
+[["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],[".", false]]
+[["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],["có","having","tác động","impact","lớn","large"],["–", false],["như","such as"],["mời","inviting"],["một","a"],["người","person"],[".", false]]COMPLETE SEQUENCE NUMBER 2
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","such as"],["mời","invite"],["một","one"],["người","person"],[".", false]]COMPLETE SEQUENCE NUMBER 3
+[["có","have"],["tác động","impact"],["lớn", "big"],["–", false],["như", "like"],["mời", "invite"],["một", "one"],["người", "person"],["có","have"],["tác động","impact"],["lớn", "big"],["–", false],["như", "like"],["mời", "invite"],["một", "one"],["người", "person"],["có","have"],["tác động","impact"],["lớn", "big"],["–", false],["như", "like"],["mời", "invite"],["một", "one"],["người", "person"],["có","have"],["tác động","impact"],["lớn", "big"],["–", false],["như", "like"],["mời", "invite"],["một", "one"],["người", "person"],["có","have"],["tác động","impact"],["lớn", "big"],["–", false],["như", "like"],["mời", "invite"],["một", "one"],["người", "person"],[".", false]]COMPLETE SEQUENCE NUMBER 4
+[["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","effect"],["lớn","large"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]COMPLETE SEQUENCE NUMBER 5
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]
+[["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],["có","have"],["tác động","impact"],["lớn","big"],["–", false],["như","like"],["mời","invite"],["một","one"],["người","person"],[".", false]]COMPLETE SEQUENCE NUMBER 6
