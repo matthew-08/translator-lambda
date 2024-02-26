@@ -1,52 +1,54 @@
 import { EventEmitter } from 'stream';
 import { EVENTS } from '../utils/constants/event-map';
-import { Logger } from '../log/log';
-
-export abstract class ITranslatorApiClient {
-  abstract translate(data: string): AsyncIterable<any>;
-}
-
-export class FinalResultProcessor {
-  constructor() {}
-
-  handleIncomingChunk(chunk: any) {}
-}
+import { ILogger } from '../log/log';
+import { ITranslatorApiClient } from './translator-client';
+import { IFinalResultHandler } from './final-result-handler';
+import { createWriteStream } from 'fs';
+import { AIResultFormatter } from './ai-result-formatter';
 
 export type PreparedTranslationInput = {
   sequenceNumber: number;
   result: string[][];
 };
 
+const w = createWriteStream('./test-2.jsonl');
+
 export class SentenceTranslator {
   private _translationClient: ITranslatorApiClient;
-  private _processQueue: PreparedTranslationInput[];
+  _processQueue: PreparedTranslationInput[];
   private _maxConnections: number;
   private _currentOpenConnections: number;
-  private _resultProcessor: FinalResultProcessor;
+  private _finalResultHandler: IFinalResultHandler;
   private _eventEmitter: EventEmitter;
   private _receivedAllChunksReadEvent: boolean = false;
-  private _logger: Logger;
+  private _logger: ILogger;
+  private _AIResultFormatter: AIResultFormatter;
 
   constructor(
     client: ITranslatorApiClient,
-    finalResultProcessor: FinalResultProcessor,
+    finalResultProcessor: IFinalResultHandler,
     eventEmitter: EventEmitter,
-    logger: Logger,
+    logger: ILogger,
+    AIResultFormatter: AIResultFormatter,
     maxConnections: number = 3
   ) {
     this._translationClient = client;
-    this._resultProcessor = finalResultProcessor;
+    this._finalResultHandler = finalResultProcessor;
     this._eventEmitter = eventEmitter;
+    this._AIResultFormatter = AIResultFormatter;
+    this._logger = logger;
+
     this._processQueue = [];
     this._maxConnections = maxConnections;
     this._currentOpenConnections = 0;
-    this._logger = logger;
+
     this.subscribeEvents();
   }
 
   private subscribeEvents() {
     this._eventEmitter.on(EVENTS.ALL_CHUNKS_READ, () => {
       this._receivedAllChunksReadEvent = true;
+      this.checkFinished();
     });
   }
 
@@ -65,49 +67,27 @@ export class SentenceTranslator {
       const { result, sequenceNumber } =
         this._processQueue.shift() as PreparedTranslationInput;
 
-      let encounteredError = false;
       try {
-        const iterable = await this._translationClient.translate(
+        const translationResult = await this._translationClient.translate(
           JSON.stringify(result)
         );
 
-        for await (const chunk of iterable) {
-          this._resultProcessor.handleIncomingChunk({
-            sequenceNumber,
-            dataChunk: chunk,
+        if (translationResult) {
+          const formattedResult = this._AIResultFormatter.format({
+            originalInput: result,
+            aiOutput: translationResult,
           });
+          if (formattedResult) {
+            this._finalResultHandler.handleIncomingChunk({
+              dataChunk: JSON.stringify(formattedResult) + '\n',
+              sequenceNumber: sequenceNumber,
+            });
+          }
         }
-        console.log('test');
-        this._resultProcessor.handleIncomingChunk({
-          sequenceNumber,
-          dataChunk: `COMPLETE SEQUENCE NUMBER ${sequenceNumber}\n`,
-        });
-        this._resultProcessor.handleIncomingChunk({
-          sequenceNumber,
-          dataChunk: null,
-        });
       } catch (error: any) {
         this._logger.error(
           `Error from sentence translator: ${JSON.stringify(error)}`
         );
-        encounteredError = true;
-        if (error.code === 'rate_limit_exceeded') {
-          this._processQueue.push({
-            result,
-            sequenceNumber,
-          });
-          this._logger.info(
-            `Rate limit exceeded, retrying seq number ${sequenceNumber} in 20 seconds`
-          );
-          await new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve(undefined);
-            }, 20000);
-          });
-        }
-      }
-      if (!encounteredError) {
-        this._eventEmitter.emit(EVENTS.CHUNK_TRANSLATED, sequenceNumber);
       }
       this._currentOpenConnections--;
       this.handleTranslation();

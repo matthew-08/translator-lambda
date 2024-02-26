@@ -10,7 +10,7 @@ export class ChunkBuffer extends PassThrough {
     this.finished = false;
 
     this.on('finish', () => {
-        appLogger.info('RECEIVED FINISHED EVENT IN CHUNKBUFFER')
+      appLogger.info('RECEIVED FINISHED EVENT IN CHUNKBUFFER');
       this.finished = true;
     });
   }

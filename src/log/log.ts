@@ -36,15 +36,18 @@ export const createServiceLogger = (serviceName?: string) => {
         new winston.transports.Console({
           format: winston.format.combine(winston.format.splat(), devFormat),
         }),
-        new winston.transports.File({
-          filename: './test.txt',
-        }),
       ],
     });
   }
 };
 
-export class Logger {
+export abstract class ILogger {
+  constructor(serviceName?: string) {}
+  abstract info(message: string, object?: any): void;
+  abstract error(message: string, object?: any): void;
+}
+
+export class Logger implements ILogger {
   private _internalLogger;
   constructor(serviceName?: string) {
     this._internalLogger = createServiceLogger(serviceName);

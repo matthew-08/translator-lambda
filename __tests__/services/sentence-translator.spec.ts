@@ -1,10 +1,9 @@
-import {
-  FinalResultProcessor,
-  SentenceTranslator,
-} from '../../src/services/sentence-translator';
-import { ITranslatorApiClient } from '../../src/services/sentence-translator';
+import { SentenceTranslator } from '../../src/services/sentence-translator';
 import { mockTranslationInputData } from '../mock_data/prepared-translation-input-mock';
 import EventEmitter from 'events';
+import { ITranslatorApiClient } from '../../src/services/translator-client';
+import { IFinalResultHandler } from '../../src/services/final-result-handler';
+import { createMockLogger } from '../utils/createMockLogger';
 
 const mockTranslations = [
   'Mock transalted data 1',
@@ -23,7 +22,7 @@ class MockTranslatorClient implements ITranslatorApiClient {
     }
   }
 }
-class MockFinalResultsProcessor implements FinalResultProcessor {
+class MockFinalResultsProcessor implements IFinalResultHandler {
   results: any[] = [];
   handleIncomingChunk(chunk: any): void {
     this.results.push(chunk);
@@ -34,6 +33,8 @@ let mockFinalResultsProcessor: MockFinalResultsProcessor;
 
 let sentenceTranslator: SentenceTranslator;
 
+const logger = createMockLogger();
+
 describe('sentence translator', () => {
   beforeEach(() => {
     mockFinalResultsProcessor = new MockFinalResultsProcessor();
@@ -41,6 +42,7 @@ describe('sentence translator', () => {
       new MockTranslatorClient(),
       mockFinalResultsProcessor,
       new EventEmitter(),
+      logger,
       3
     );
   });

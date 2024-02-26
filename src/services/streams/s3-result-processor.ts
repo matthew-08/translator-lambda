@@ -1,19 +1,14 @@
-import {
-  EventEmitter,
-  Transform,
-  TransformCallback,
-  TransformOptions,
-} from 'stream';
+import { Transform, TransformCallback, TransformOptions } from 'stream';
 import { combineBuffer } from '../../utils/combine-buffer';
-import { Logger } from '../../log/log';
+import { ILogger, Logger } from '../../log/log';
 
 export class S3ResultsProcessor extends Transform {
   private _sequenceNumber: number;
   private _tail: Buffer;
   private _lineDelineator: number;
-  private _logger: Logger;
+  private _logger: ILogger;
   constructor(
-    logger: Logger,
+    logger: ILogger,
     lineDelineator: string = '\n',
     options?: TransformOptions
   ) {

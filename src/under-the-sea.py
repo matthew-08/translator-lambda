@@ -9,9 +9,8 @@ normalized_text = text_normalize(text)
 sentences = sent_tokenize(text)
 
 
-writeFile = open('./result.json', 'w')
+writeFile = open('./test-1.1.json', 'w')
 result = []
 for sentence in sentences:
+    writeFile.write(dumps(word_tokenize(sentence), ensure_ascii=False) + '\n')
     result.append(word_tokenize(sentence))
-
-writeFile.write(dumps(result, ensure_ascii=False))

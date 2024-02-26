@@ -1,8 +1,7 @@
 import { EventEmitter, Readable, ReadableOptions } from 'stream';
 import { S3, GetObjectRequest } from '@aws-sdk/client-s3';
 import { EVENTS } from '../../utils/constants/event-map';
-import { Logger, createServiceLogger } from '../../log/log';
-import { s3 } from '../../db/s3';
+import { Logger } from '../../log/log';
 
 type ReaderChunkSizeOptions = {
   maxNumberOfChunks?: number;

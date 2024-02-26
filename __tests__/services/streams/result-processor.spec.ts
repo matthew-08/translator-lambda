@@ -1,10 +1,11 @@
 import { createReadStream } from 'fs';
-import { S3ResultsProcessor } from '../../src/services/streams/s3-result-processor';
+import { S3ResultsProcessor } from '../../../src/services/streams/s3-result-processor';
 import fs from 'fs/promises';
 import path from 'path';
+import { createMockLogger } from '../../utils/createMockLogger';
+const mockLogger = createMockLogger();
 
 // load file into memory and parse into JS object so we can compare the stream results
-
 const getMockData = async () => {
   return (await fs.readFile(MOCK_JSONL_FILEPATH, 'utf-8'))
     .split('\n')
@@ -18,7 +19,7 @@ describe('text processor stream', () => {
     const mockData = await getMockData();
 
     const r = createReadStream(MOCK_JSONL_FILEPATH).pipe(
-      new S3ResultsProcessor()
+      new S3ResultsProcessor(mockLogger)
     );
 
     const results = [];
@@ -35,7 +36,7 @@ describe('text processor stream', () => {
 
     const r = createReadStream(MOCK_JSONL_FILEPATH, {
       highWaterMark: 20,
-    }).pipe(new S3ResultsProcessor());
+    }).pipe(new S3ResultsProcessor(mockLogger));
 
     const results = [];
     for await (const result of r) {
@@ -48,7 +49,7 @@ describe('text processor stream', () => {
   test('returns sequence numbers in order for each chunk processed ', async () => {
     const r = createReadStream(MOCK_JSONL_FILEPATH, {
       highWaterMark: 1024,
-    }).pipe(new S3ResultsProcessor());
+    }).pipe(new S3ResultsProcessor(mockLogger));
 
     const results: any[] = [];
     for await (const result of r) {
@@ -65,7 +66,7 @@ describe('text processor stream', () => {
       `["valid", "data"]\n "invalid", "json", "array"]\n ["more", "valid", "data"]`
     );
 
-    const r = new S3ResultsProcessor();
+    const r = new S3ResultsProcessor(mockLogger);
     r.write(mockData);
     r.end();
 
