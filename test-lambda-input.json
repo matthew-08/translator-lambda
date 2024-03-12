@@ -1,0 +1,69 @@
+{
+  "version": "2.0",
+  "routeKey": "$default",
+  "rawPath": "/path/to/resource",
+  "rawQueryString": "parameter1=value1&parameter1=value2&parameter2=value",
+  "cookies": [
+    "cookie1",
+    "cookie2"
+  ],
+  "headers": {
+    "Header1": "value1",
+    "Header2": "value1,value2"
+  },
+  "queryStringParameters": {
+    "parameter1": "value1,value2",
+    "parameter2": "value"
+  },
+  "requestContext": {
+    "accountId": "123456789012",
+    "apiId": "api-id",
+    "authentication": {
+      "clientCert": {
+        "clientCertPem": "CERT_CONTENT",
+        "subjectDN": "www.example.com",
+        "issuerDN": "Example issuer",
+        "serialNumber": "a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1",
+        "validity": {
+          "notBefore": "May 28 12:30:02 2019 GMT",
+          "notAfter": "Aug  5 09:36:04 2021 GMT"
+        }
+      }
+    },
+    "authorizer": {
+      "jwt": {
+        "claims": {
+          "claim1": "value1",
+          "claim2": "value2"
+        },
+        "scopes": [
+          "scope1",
+          "scope2"
+        ]
+      }
+    },
+    "domainName": "id.execute-api.us-east-1.amazonaws.com",
+    "domainPrefix": "id",
+    "http": {
+      "method": "POST",
+      "path": "/path/to/resource",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "192.168.0.1/32",
+      "userAgent": "agent"
+    },
+    "requestId": "id",
+    "routeKey": "$default",
+    "stage": "$default",
+    "time": "12/Mar/2020:19:03:58 +0000",
+    "timeEpoch": 1583348638390
+  },
+  "body": "ewogICJ0ZXh0IjogIkplb3BhcmR5ISBsw6AgbeG7mXQgY2jGsMahbmcgdHLDrG5oIMSR4buRIHZ1aSB0csOqbiB0cnV54buBbiBow6xuaCB04bqhaSBN4bu5IHbhu5tpIGPDoWMgY8OidVxuZOG7kSB0cuG6o2kgZMOgaSB0cm9uZyBuaGnhu4F1IGzEqW5oIHbhu7FjOiBs4buLY2ggc+G7rSwgdsSDbiBo4buNYywgbmdo4buHIHRodeG6rXQsIGtob2EgaOG7jWMuLi5cbkNoxrDGoW5nIHRyw6xuaCBjw7MgZOG6oW5nIGPDonUgdHLhuqMgbOG7nWktdsOgLWPDonUgaOG7j2kgZHV5IG5o4bqldCwgdHJvbmcgxJHDsyBuZ8aw4budaSBjaMahaVxuZMaw4bujYyBjaG8gYmnhur90IG1hbmggbeG7kWkgZMaw4bubaSBow6xuaCB0aOG7qWMgY8OidSB0cuG6oyBs4budaSwgdsOgIHBo4bqjaSB04bqhbyByYSBs4budaSBnaeG6o2lcbmTGsOG7m2kgaMOsbmggdGjhu6ljIGPDonUgaOG7j2kuIChCVFYpXG7EkGnhu4F1IMSR4bq3YyB0csawbmcgbsOgeSBy4bqldCBxdWFuIHRy4buNbmcgYuG7n2kgbsOzIGNobyBjaMO6bmcgdGEgdGjhuqV5LCBu4bq/dSBi4bqhbiBsw6AgbeG7mXRcbmzDo25oIMSR4bqhbyBj4bqlcCBjYW8g4bufIG3hu5l0IGPDtG5nIHR5IGzhu5tuLCBjw7MgbOG6vSBi4bqhbiBz4bq9IGtow7RuZyBj4bqnbiDEkeG6v24gbOG7nWkga2h1ecOqblxu4bufIG5o4buvbmcgdHJhbmcgc2F1LiBN4bq3dCBraMOhYywgbsOzIGPFqW5nIGNobyBjaMO6bmcgdGEgYmnhur90IHLhurFuZyBi4bqhbiBraMO0bmcgdGjhu4NcbmTDoW5oIMSR4buTbmcgcGjGsMahbmcgcGjDoXAgY+G7p2Egbmjhu69uZyBuaMOgIGzDo25oIMSR4bqhbyBuw6B5IHbhu5tpIG5o4buvbmcgY8O0bmcgdmnhu4djXG5raMOhYy4gU+G7sSB0aOG6rXQgbMOgIHZp4buHYyBEb3JzZXkgbHXDtG4gxJHDs24gbmjhuq1uIHPhu7EgZ2nDoW4gxJFv4bqhbiBoYXkgS2VycnkgVHJhaW5vclxubGnDqm4gdOG7pWMga2nhu4NtIHRyYSBlLW1haWwga2jDtG5nIG7Ds2kgbMOqbiDEkcaw4bujYyBy4bqxbmcgYuG6oW4gc+G6vSB0aMOgbmggY8O0bmcgbuG6v3UgYuG6r3RcbmNoxrDhu5tjIGdp4buRbmcgaOG7jTogSMOgbmggdmkgY+G7p2EgaOG7jSDEkeG7gXUgbWFuZyBuw6l0IMSR4bq3YyB0csawbmcgdHJvbmcgbmjhu69uZyB2YWlcbnRyw7IgY+G7pSB0aOG7gyB24bubaSB0xrAgY8OhY2ggbMOgIGzDo25oIMSR4bqhbyBkb2FuaCBuZ2hp4buHcC5cblF1eSB04bqvYyDEkeG6t2MgdHLGsG5nIG7DoHkgbsOqbiDEkcaw4bujYyDDoXAgZOG7pW5nIGNobyBuaOG7r25nIHbDrSBk4bulIMSR4buRaSDhu6luZyB0xrDGoW5nIHThu7Fcbnh14bqldCBoaeG7h24gdHJvbmcgxJHhuqd1IGLhuqFuIGtoaSDEkeG7jWMgcGjhuqduIGPDsm4gbOG6oWkgY+G7p2EgY3Xhu5FuIHPDoWNoIG7DoHkuIENow7puZyB0YVxucGjhuqNpIGxpw6puIHThu6VjIOKAnG7hurFtIGzDsm5n4oCdIHLhurFuZywgbuG7gW4ga2luaCB04bq/IHbhuqtuIHThu5NuIHThuqFpIG5o4buvbmcgZ8OzYyBraHXhuqV0IG5o4bqldFxuxJHhu4tuaCBuxqFpIHPhu7EgY2h1ecOqbiBzw6J1IGtow7RuZyDEkcaw4bujYyB0csOibiB0cuG7jW5nLiBOZ2/DoGkgY8OhYyBuaMOgIGzDo25oIMSR4bqhbyxcbmNow7puZyB0YSBjw7JuIGPDsyB0aOG7gyBr4buDIMSR4bq/biBuaOG7r25nIG5nxrDhu51pIGzDoG0ga2luaCBkb2FuaCB2w6AgduG6rW4gxJHhu5luZyBow6BuaFxubGFuZywgbmjhu69uZyBuZ8aw4budaSDEkeG6t2MgYmnhu4d0IGNvaSB0cuG7jW5nIHPhu7Ega+G6v3QgbuG7kWkgbGnDqm4gdOG7pWMuIFRo4bqtbSBjaMOtIGPDsm4gY8OzIGPhuqNcbm5o4buvbmcgbmfGsOG7nWkgduG6q24gbHXDtG4gY+G7kSBn4bqvbmcgY2jhuq90IGfDs3AgdGjDoG5oIGPDtG5nIGTDuSBi4buLIHBow6JuIHTDom0gdHJvbmdcbm5o4buvbmcgbMSpbmggduG7sWMgcuG6pXQgY+G6p24gc+G7sSBjaHV5w6puIHPDonUuXG5OaMawbmcgY8O5bmcgbMO6YyDEkcOzLCBi4bqhbiBjxaluZyDEkeG7q25nIHF1w6EgaOG6pXAgdOG6pXAga2hpIGTDoW4gbmjDo24gY2hvIGPDtG5nIHZp4buHY1xuY+G7p2EgbcOsbmggbMOgIGtow7RuZyBj4bqnbiB0aGnhur90IHBo4bqjaSBjaHV5w6puIHPDonUuIE5o4buvbmcgdGjDs2kgcXVlbiBoaeG7h24gdOG6oWlcbmtoaeG6v24gbMOgbSB2aeG7h2Mgc8OidSB0cuG7nyBuw6puIGtow7Mga2jEg24ga2jDtG5nIGPDsyBuZ2jEqWEgbMOgIHPhu7EgdGhp4bq/dSBjaHV5w6puIHPDonVcbm7DoHkgY8OzIHRo4buDIHRy4bufIHRow6BuaCBu4buBbiB04bqjbmcgY8ahIGLhuqNuIMSR4buDIGzDoG0gdOG7kXQgY8O0bmcgdmnhu4djLiBWw60gZOG7pSBuaMawLCB0cm9uZ1xuY2jGsMahbmcgdGnhur9wIHRoZW8sIHTDtGkgc+G6vSBr4buDIG3hu5l0IGPDonUgY2h1eeG7h24gduG7gSBuaMOzbSBj4buRIHbhuqVuIHF14bqjbiB0cuG7iyBjw7Ncbm7Eg25nIGzhu7FjIGNhbywgbmjhu69uZyBuZ8aw4budaSBsdcO0biB0aW4gcuG6sW5nIGvhur90IG7hu5FpIGUtbWFpbCBsacOqbiB04bulYyBsw6AgxJFp4buBdSBj4bqnblxudGhp4bq/dCDEkeG7gyBwaOG7pWMgduG7pSBraMOhY2ggaMOgbmcgY+G7p2EgbcOsbmguIEtoaSBt4buZdCB24buLIGdpw6FvIHPGsCB0csaw4budbmcgSGFydmFyZFxuYnXhu5ljIGjhu40gcGjhuqNpIG5n4bqvdCBr4bq/dCBu4buRaSB0aMaw4budbmcgeHV5w6puIGjGoW4gKG5oxrAgbeG7mXQgcGjhuqduIHRyb25nIG3hu5l0XG5uZ2hpw6puIGPhu6l1KSwgaOG7jSBt4bubaSBuZ+G7oSBuZ8Ogbmcgbmjhuq1uIHJhIHLhurFuZyBz4buxIGvhur90IG7hu5FpIG7DoHkga2jDtG5nIHF1YW5cbnRy4buNbmcgbmjGsCBo4buNIHThu6tuZyBuZ2jEqS4gS2jDtG5nIHBo4bqjaSBsw7pjIG7DoG8ga2jDoWNoIGjDoG5nIGPFqW5nIHRo4buxYyBz4buxIGPhuqduXG5sacOqbiBs4bqhYyB24bubaSBo4buNIHbDoCBoaeG7h3Ugc3XhuqV0IGPhu6dhIGjhu40gxJHDoyDEkcaw4bujYyBj4bqjaSB0aGnhu4duIG5nYXkga2hpIHPhu7EgY2jDuiDDvSBj4bunYVxuaOG7jSBi4bubdCBi4buLIHBow6JuIHTDoW4uXG5UxrDGoW5nIHThu7EgbmjGsCB24bqteSwgbeG7mXQgc+G7kSBuaMOgIHF14bqjbiBsw70gbcOgIHTDtGkgYmnhur90IMSRw6MgY+G7kSBn4bqvbmcgdGh1eeG6v3QgcGjhu6VjXG50w7RpIHLhurFuZyBnacOhIHRy4buLIGPhu6dhIGjhu40gxJHGsOG7o2MgdGjhu4MgaGnhu4duIHF1YSB2aeG7h2MgaOG7jSBjw7MgdGjhu4MgcGjhuqNuIGjhu5NpIG5oYW5oXG5jaMOzbmcgY8OhYyB24bqlbiDEkeG7gSBj4bunYSDEkeG7mWkgbmjDs20sIGdpw7pwIG5nxINuIGNo4bq3biBz4buxIMSRw6xuaCB0cuG7hyBj4bunYSBk4buxIMOhbi4gSOG7jVxuY+G7jWkgdmFpIHRyw7IgY+G7p2EgaOG7jSBuaMawIMSR4buZbmcgbOG7sWMgxJHhu4Mga8OtY2ggaG/huqF0IG7Eg25nIHN14bqldCBj4bunYSBuaOG7r25nIG5nxrDhu51pXG5raMOhYyBjaOG7qSBraMO0bmcgbmjhuqV0IHRoaeG6v3QgbMOgIGLhuqNvIHbhu4cgY2jDrW5oIG3DrG5oLiBUaOG6vyBuaMawbmcsIG5o4buvbmcgY3Xhu5ljXG50YXJhbyDEkeG7lWkgdGhlbyDEkcOzIGzhuqFpIHPhu5ttIGjDqSBs4buZIHLhurFuZyBt4bulYyB0acOqdSBuw6B5IGtow7RuZyB0aOG7sWMgc+G7sSDEkcOyaSBo4buPaSBr4bq/dFxubuG7kWkgbMOgbSBwaMOibiB0w6FuIHPhu7EgY2jDuiDDvS4gUXXhuqMgbMOgIG5oxrAgduG6rXksIG5oaeG7gXUgY8O0bmcgdHkgcGjhuqduIG3hu4FtIGhp4buHblxubmF5IMSRw6MgdHJp4buDbiBraGFpIHBoxrDGoW5nIHBow6FwIHF14bqjbiBsw70gZOG7sSDDoW4gU2NydW0sMTcgZ2nDunAgdGhheSB0aOG6vyB2aeG7h2Ncbm5o4bqvbiB0aW4gdMOsbmggdGjhur8gbsOgeSBi4bqxbmcgbmjhu69uZyBjdeG7mWMgaOG7jXAgxJHGsOG7o2MgdOG7lSBjaOG7qWMga+G7uSBsxrDhu6FuZyB2w6AgY8OzXG5oaeG7h3UgcXXhuqMgbmdheSAobmjhu69uZyBjdeG7mWMgaOG7jXAgbmhhbmggdOG6oWkgY2jhu5cgxJHhu4MgZ2nhuqNtIHRoaeG7g3Ugdmnhu4djIHBo4bqjaSB0csOsbmhcbmLDoHkgdHJhbmcgdHLhu41uZykuIEPDoWNoIHRp4bq/cCBj4bqtbiBuw6B5IGdpw7pwIGdp4bqjaSBwaMOzbmcgdGjhu51pIGdpYW4gbMOgbSBjw7RuZyB0w6FjXG5xdeG6o24gbMO9IMSR4buDIHTGsCBkdXkgc8OiIgp9",
+  "pathParameters": {
+    "parameter1": "value1"
+  },
+  "isBase64Encoded": true,
+  "stageVariables": {
+    "stageVariable1": "value1",
+    "stageVariable2": "value2"
+  }
+}

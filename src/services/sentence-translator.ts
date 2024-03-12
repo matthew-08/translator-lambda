@@ -5,13 +5,12 @@ import { ITranslatorApiClient } from './translator-client';
 import { IFinalResultHandler } from './final-result-handler';
 import { createWriteStream } from 'fs';
 import { AIResultFormatter } from './ai-result-formatter';
+import { PipelineStateTracker } from './pipeline-emitter';
 
 export type PreparedTranslationInput = {
   sequenceNumber: number;
   result: string[][];
 };
-
-const w = createWriteStream('./test-2.jsonl');
 
 export class SentenceTranslator {
   private _translationClient: ITranslatorApiClient;
@@ -20,9 +19,9 @@ export class SentenceTranslator {
   private _currentOpenConnections: number;
   private _finalResultHandler: IFinalResultHandler;
   private _eventEmitter: EventEmitter;
-  private _receivedAllChunksReadEvent: boolean = false;
   private _logger: ILogger;
   private _AIResultFormatter: AIResultFormatter;
+  private _pipelineStateTracker: PipelineStateTracker;
 
   constructor(
     client: ITranslatorApiClient,
@@ -30,6 +29,7 @@ export class SentenceTranslator {
     eventEmitter: EventEmitter,
     logger: ILogger,
     AIResultFormatter: AIResultFormatter,
+    pipelineStateTracker: PipelineStateTracker,
     maxConnections: number = 3
   ) {
     this._translationClient = client;
@@ -37,19 +37,11 @@ export class SentenceTranslator {
     this._eventEmitter = eventEmitter;
     this._AIResultFormatter = AIResultFormatter;
     this._logger = logger;
+    this._pipelineStateTracker = pipelineStateTracker;
 
     this._processQueue = [];
     this._maxConnections = maxConnections;
     this._currentOpenConnections = 0;
-
-    this.subscribeEvents();
-  }
-
-  private subscribeEvents() {
-    this._eventEmitter.on(EVENTS.ALL_CHUNKS_READ, () => {
-      this._receivedAllChunksReadEvent = true;
-      this.checkFinished();
-    });
   }
 
   enqueueTranslation(input: PreparedTranslationInput) {
@@ -85,9 +77,7 @@ export class SentenceTranslator {
           }
         }
       } catch (error: any) {
-        this._logger.error(
-          `Error from sentence translator: ${JSON.stringify(error)}`
-        );
+        this._logger.error(`Error from sentence translator: ${error.message}`);
       }
       this._currentOpenConnections--;
       this.handleTranslation();
@@ -97,9 +87,17 @@ export class SentenceTranslator {
 
   private checkFinished() {
     const finished =
-      this._receivedAllChunksReadEvent &&
+      this._pipelineStateTracker.allChunksRead &&
       !this._processQueue.length &&
       this._currentOpenConnections === 0;
+    console.log(finished, 'FINISHED');
+    console.log(
+      this._pipelineStateTracker.allChunksRead,
+      '_receivedAllChunksReadEvent'
+    );
+    console.log(this._processQueue, 'process queue');
+    console.log(this._currentOpenConnections, 'current open connections');
+
     if (finished) {
       this._logger.info(
         'All chunks processed, no current connections with AI client emitting all chunks translated event'

@@ -57,7 +57,6 @@ export class S3Reader extends Readable {
       );
       this.push(null);
     } else if (this._chunksRead < this._maxChunks) {
-      console.log('test');
       const range = this._currentCursorPosition + this._s3ChunkSize;
       this._s3StreamParams.Range = `bytes=${this._currentCursorPosition}-${range}`;
       this._currentCursorPosition = range + 1;

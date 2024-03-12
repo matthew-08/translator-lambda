@@ -82,7 +82,7 @@ doanh gần đây là Hall, một công ty khởi nghiệp ở Thung lũng Silic
 giúp nhân viên tiến xa hơn trong việc trò chuyện đơn thuần và đi sâu vào
 “hợp tác thời gian thực”. Một nhân viên phát triển người San Francisco mà
 tôi quen đã mô tả với tôi rằng, cảm giác giống như thể làm việc tại một
-công ty sử dụng Hall vậy. Anh giải thích, những nhân viên “hiệu suất cao”
+công ty sử dụng Hall vậy. Anh giải thích, những nhân viên “hiệu suất cao” 
 nhất đều cài đặt trình chỉnh sửa văn bản để mỗi khi có câu hỏi hay bình
 luận mới được đăng lên tài khoản Hall của công ty sẽ có một thông báo
 được hiển thị ngay lập tức trên màn hình. Khi đó, chỉ bằng một chuỗi các tổ

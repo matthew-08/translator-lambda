@@ -69,6 +69,7 @@ export class ResultUploader {
   }
 
   async write(chunk: Chunk | null) {
+    console.log(chunk, 'chunk received in write');
     if (chunk && chunk.dataChunk) {
       this._internalBuffer += chunk.dataChunk;
       this._eventEmitter.emit(EVENTS.CHUNK_UPLOADED);
@@ -98,6 +99,7 @@ export class ResultUploader {
         },
       })
     );
+    this._eventEmitter.emit(EVENTS.RESULT_UPLOAD_COMPLETE, res);
   }
 
   async uploadPart() {

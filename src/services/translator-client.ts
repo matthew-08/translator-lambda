@@ -50,6 +50,7 @@ export class TranslatorClient implements ITranslatorApiClient {
     try {
       return await this.createChat(this.setupPrompt, data);
     } catch (error: any) {
+      console.log(error.message);
       if (SHOULD_RETRY_RESPONSE_CODES.includes(error.code)) {
         if (!this._timeout) {
           this.setInternalTimer();

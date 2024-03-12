@@ -1,6 +1,6 @@
 import { EventEmitter } from 'stream';
 import { createS3Reader } from './services/streams/s3-reader';
-import { S3 } from '@aws-sdk/client-s3';
+import { CompleteMultipartUploadCommandOutput, S3 } from '@aws-sdk/client-s3';
 import { SentenceTranslator } from './services/sentence-translator';
 import { S3ResultsProcessor } from './services/streams/s3-result-processor';
 import { appEnv } from './env/env';
@@ -10,19 +10,21 @@ import { ResultUploader } from './services/result-uploader';
 import { AIResultFormatter } from './services/ai-result-formatter';
 import { FormatConfig } from './services/config/format-config';
 import { createFinalResultsProcessor } from './utils/factories/final-results-processor-factory';
+import { PipelineStateTracker } from './services/pipeline-emitter';
+import { EVENTS } from './utils/constants/event-map';
 
 const s3 = new S3({
   region: appEnv.awsRegion,
 });
 
-type Input = {
+type S3Params = {
   Bucket: string;
   Key: string;
 };
 
-async function main(input: Input) {
+async function main(input: S3Params): Promise<S3Params> {
   const pipelineEmitter = new EventEmitter();
-
+  const pipelineStateTracker = new PipelineStateTracker(pipelineEmitter);
   // construct initial s3 read => formatS3 results stream
   const s3Reader = await createS3Reader(s3, input, pipelineEmitter, {
     maxNumberOfChunks: 20,
@@ -59,18 +61,30 @@ async function main(input: Input) {
     pipelineEmitter,
     new Logger('sentence-translator'),
     new AIResultFormatter(formatConfig),
+    pipelineStateTracker,
     3
   );
   streamFromS3.on('data', (chunk) => {
     sentenceTranslator.enqueueTranslation(chunk);
   });
+  return new Promise((resolve, reject) => {
+    pipelineEmitter.on(
+      EVENTS.RESULT_UPLOAD_COMPLETE,
+      (res: CompleteMultipartUploadCommandOutput) => {
+        resolve({
+          Bucket: res.Bucket!,
+          Key: res.Key!,
+        });
+      }
+    );
+  });
 }
 
-export const startTranslatePipeline = (params: {
+export const processWithTranslationPipeline = (params: {
   Bucket: string;
   Key: string;
 }) => {
-  main(params);
+  return main(params);
 };
 
 process.on('uncaughtException', (err) => {

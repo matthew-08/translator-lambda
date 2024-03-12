@@ -1,0 +1,44 @@
+default:
+  image: node:20.11.1-alpine3.18
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  before_script:
+    - npm ci --cache .npm --prefer-offline
+
+variables:
+  DOCKER_REGISTRY: '$DOCKER_REGISTRY_URL'
+  AWS_DEFAULT_REGION: '$AWS_DEFAULT_REGION'
+  REPO_NAME: '$REPO_NAME'
+  DOCKER_HOST: tcp://docker:2375
+
+stages:
+  - test/lint
+  - build
+  - deploy
+
+unit_tests:
+  stage: test/lint
+  script:
+    - echo "Executing unit tests..."
+    - npm install
+    - npm test
+
+lint:
+  stage: test/lint
+  script:
+    - echo "Linting..."
+    - npm run lint
+
+build_image:
+  services:
+    - docker:24.06.6-dind
+  stage: build
+  script:
+    - echo "Building and pushing docker image to ecr..."
+    - docker build -t translator-lambda $DOCKER_REGISTRY/$REPO_NAME:$CI_PIPELINE_ID
+    - aws ecr get-login-password | docker login --username AWS --pasword-stdin $DOCKER_REGISTRY
+    - docker push $DOCKER_REGISTRY/$REPO_NAME:$CI_PIPELINE_ID
